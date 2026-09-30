@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Let's get to know each other</title>
+    <meta
+        name="description"
+        content="Ein kleiner persönlicher Fragebogen zum Kennenlernen."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <header class="hero section">
+
+        <div class="hero-decoration hero-decoration-one"></div>
+        <div class="hero-decoration hero-decoration-two"></div>
+
+        <div class="hero-content">
+
+            <p class="eyebrow">A little introduction</p>
+
+            <h1>
+                Let's get to know
+                <span>each other.</span>
+            </h1>
+
+            <p class="hero-text">
+                Wenn du schon hier bist, können wir uns auch
+                ein bisschen kennenlernen. Ohne Druck, ohne
+                Bewerbungsgespräch – einfach ehrlich.
+            </p>
+
+            <a href="#about" class="button">
+                Let's start
+                <span>↓</span>
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================================
+             ABOUT YOU
+        ========================================== -->
+
+        <section id="about" class="section section-light">
+
+            <div class="section-inner">
+
+                <div class="section-heading">
+                    <span class="section-number">01</span>
+
+                    <p class="eyebrow">First things first</p>
+
+                    <h2>
+                        Tell me a little
+                        <em>about you.</em>
+                    </h2>
+
+                    <p>
+                        Ganz entspannt. Ein paar Dinge, mit denen
+                        ich mir ein erstes Bild von dir machen kann.
+                    </p>
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="name">Wie heißt du?</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Dein Name"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="age">Wie alt bist du?</label>
+                        <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            placeholder="Dein Alter"
+                            min="18"
+                            max="100"
+                        >
+                    </div>
+
+
+                    <div class="form-group form-group-full">
+                        <label for="location">Wo wohnst du?</label>
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="Stadt / Region"
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             YOUR WORLD
+        ========================================== -->
+
+        <section class="section section-sand">
+
+            <div class="section-inner">
+
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+
+                    <p class="eyebrow">Your world</p>
+
+                    <h2>
+                        What makes you
+                        <em>you?</em>
+                    </h2>
+
+                    <p>
+                        Die kleinen Dinge sind oft die interessanteren.
+                    </p>
+                </div>
+
+
+                <div class="question-list">
+
+                    <div class="form-group">
+                        <label for="happiness">
+                            Was macht dich glücklich?
+                        </label>
+
+                        <textarea
+                            id="happiness"
+                            name="happiness"
+                            rows="4"
+                            placeholder="Erzähl mir davon..."
+                        ></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="sunday">
+                            Wie sieht dein perfekter Sonntag aus?
+                        </label>
+
+                        <textarea
+                            id="sunday"
+                            name="sunday"
+                            rows="4"
+                            placeholder="Ausschlafen, Frühstück, Sport, Sofa..."
+                        ></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="passions">
+                            Wofür kannst du dich richtig begeistern?
+                        </label>
+
+                        <textarea
+                            id="passions"
+                            name="passions"
+                            rows="4"
+                            placeholder="Was bringt deine Augen zum Leuchten?"
+                        ></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FUN PART
+        ========================================== -->
+
+        <section class="section section-light">
+
+            <div class="section-inner">
+
+                <div class="section-heading">
+                    <span class="section-number">03</span>
+
+                    <p class="eyebrow">The fun part</p>
+
+                    <h2>
+                        Let's talk about
+                        <em>the important stuff.</em>
+                    </h2>
+                </div>
+
+
+                <div class="choice-grid">
+
+                    <div class="choice-card">
+                        <span class="choice-icon">☕</span>
+
+                        <label for="morning">
+                            Morgen- oder Nachtmensch?
+                        </label>
+
+                        <select id="morning" name="morning">
+                            <option value="">Bitte wählen</option>
+                            <option value="morning">Definitiv Morgenmensch</option>
+                            <option value="night">Definitiv Nachtmensch</option>
+                            <option value="both">Irgendwo dazwischen</option>
+                        </select>
+                    </div>
+
+
+                    <div class="choice-card">
+                        <span class="choice-icon">🍝</span>
+
+                        <label for="food">
+                            Lieblingsessen?
+                        </label>
+
+                        <input
+                            type="text"
+                            id="food"
+                            name="food"
+                            placeholder="Pizza, Sushi, Pasta..."
+                        >
+                    </div>
+
+
+                    <div class="choice-card">
+                        <span class="choice-icon">🎵</span>
+
+                        <label for="music">
+                            Was hörst du gerne?
+                        </label>
+
+                        <input
+                            type="text"
+                            id="music"
+                            name="music"
+                            placeholder="Artist, Genre, Song..."
+                        >
+                    </div>
+
+
+                    <div class="choice-card">
+                        <span class="choice-icon">✈️</span>
+
+                        <label for="travel">
+                            Dein Lieblingsreiseziel?
+                        </label>
+
+                        <input
+                            type="text"
+                            id="travel"
+                            name="travel"
+                            placeholder="Ein Ort, an den du immer wieder möchtest"
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-group standalone-question">
+
+                    <label for="guiltyPleasure">
+                        Dein Guilty Pleasure?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="guiltyPleasure"
+                        name="guiltyPleasure"
+                        placeholder="Keine Sorge, ich verrate es nicht."
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             RELATIONSHIP
+        ========================================== -->
+
+        <section class="section section-dark">
+
+            <div class="section-inner section-inner-narrow">
+
+                <div class="section-heading section-heading-light">
+
+                    <span class="section-number">04</span>
+
+                    <p class="eyebrow">Something deeper</p>
+
+                    <h2>
+                        What are you
+                        <em>looking for?</em>
+                    </h2>
+
+                    <p>
+                        Hier darf es ein bisschen persönlicher werden.
+                        Es gibt keine richtigen oder falschen Antworten.
+                    </p>
+
+                </div>
+
+
+                <div class="question-list">
+
+                    <div class="form-group form-group-dark">
+                        <label for="relationship">
+                            Was bedeutet eine gute Beziehung für dich?
+                        </label>
+
+                        <textarea
+                            id="relationship"
+                            name="relationship"
+                            rows="5"
+                            placeholder="Was ist dir wichtig?"
+                        ></textarea>
+                    </div>
+
+
+                    <div class="form-group form-group-dark">
+                        <label for="communication">
+                            Wie kommunizierst du, wenn dir jemand wichtig ist?
+                        </label>
+
+                        <textarea
+                            id="communication"
+                            name="communication"
+                            rows="5"
+                            placeholder="Erzähl mir ein bisschen davon..."
+                        ></textarea>
+                    </div>
+
+
+                    <div class="form-group form-group-dark">
+                        <label for="values">
+                            Welche Werte sind dir besonders wichtig?
+                        </label>
+
+                        <textarea
+                            id="values"
+                            name="values"
+                            rows="4"
+                            placeholder="Ehrlichkeit, Humor, Familie..."
+                        ></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             DEEPER
+        ========================================== -->
+
+        <section class="section section-cream">
+
+            <div class="section-inner">
+
+                <div class="section-heading">
+
+                    <span class="section-number">05</span>
+
+                    <p class="eyebrow">A little deeper</p>
+
+                    <h2>
+                        Tell me something
+                        <em>real.</em>
+                    </h2>
+
+                    <p>
+                        Eine Frage, bei der es keine perfekte Antwort gibt.
+                    </p>
+
+                </div>
+
+
+                <div class="large-question">
+
+                    <p class="question">
+                        Was möchtest du in den nächsten Jahren
+                        unbedingt erleben?
+                    </p>
+
+                    <textarea
+                        id="future"
+                        name="future"
+                        rows="7"
+                        placeholder="Ein Traum, ein Abenteuer, ein Lebensziel..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             FREE TEXT
+        ========================================== -->
+
+        <section class="section section-sand">
+
+            <div class="section-inner section-inner-narrow">
+
+                <div class="section-heading">
+
+                    <span class="section-number">06</span>
+
+                    <p class="eyebrow">Your turn</p>
+
+                    <h2>
+                        Tell me something
+                        <em>I didn't ask.</em>
+                    </h2>
+
+                    <p>
+                        Gibt es etwas, das ich unbedingt über dich
+                        wissen sollte?
+                    </p>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <textarea
+                        id="additionalMessage"
+                        name="additionalMessage"
+                        class="textarea-large"
+                        rows="9"
+                        placeholder="Alles, was du noch loswerden möchtest..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SUBMIT
+        ========================================== -->
+
+        <section class="section section-final">
+
+            <div class="section-inner section-inner-small">
+
+                <div class="final-content">
+
+                    <span class="final-symbol">♡</span>
+
+                    <h2>
+                        That's it.
+                    </h2>
+
+                    <p>
+                        Danke, dass du dir die Zeit genommen hast,
+                        ein bisschen von dir zu erzählen.
+                    </p>
+
+                    <p>
+                        Ich bin gespannt, wer du bist.
+                    </p>
+
+
+                    <button
+                        type="button"
+                        class="button button-submit"
+                        id="submitButton"
+                    >
+                        Send my answers
+                        <span>→</span>
+                    </button>
+
+
+                    <p
+                        id="successMessage"
+                        class="success-message"
+                        aria-live="polite"
+                    >
+                        Danke! Deine Antworten wurden gespeichert. ♡
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <p>
+            Made with a little curiosity & love - by francis
+        </p>
+
+    </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
