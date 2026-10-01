@@ -421,15 +421,26 @@ submitButton.addEventListener(
             );
 
 			document
-				.querySelector("form")
-				.reset();
+				.querySelectorAll("input, textarea, select")
+				.forEach((element) => {
 
-				const photoPreview =
-					document.getElementById("photoPreview");
+					if (element.type === "file") {
+						element.value = "";
+					} else if (element.type === "number") {
+						element.value = "";
+					} else {
+						element.value = "";
+					}
 
-				if (photoPreview) {
-					photoPreview.innerHTML = "";
-}
+				});
+
+
+			const photoPreview =
+				document.getElementById("photoPreview");
+
+			if (photoPreview) {
+				photoPreview.innerHTML = "";
+			}
 
             /*
              * Zum Erfolgshinweis scrollen
