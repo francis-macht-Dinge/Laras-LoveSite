@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Oh, schade.</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        /* =========================================
+           SORRY PAGE
+        ========================================= */
+
+        :root {
+            --cream: #f8f5ef;
+            --brown-dark: #302721;
+            --brown-light: #75665c;
+            --taupe: #cdbfaf;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+
+        body {
+            background:
+                var(--cream);
+
+            color:
+                var(--brown-dark);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .sorry-page {
+            min-height: 100svh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                3rem 1.5rem;
+
+            text-align: center;
+        }
+
+
+        .sorry-inner {
+            width: 100%;
+            max-width: 560px;
+        }
+
+
+        /* =========================================
+           TEXT
+        ========================================= */
+
+        .sorry-eyebrow {
+            margin:
+                0 0 1.5rem;
+
+            color:
+                var(--brown-light);
+
+            font-size:
+                0.72rem;
+
+            letter-spacing:
+                0.18em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .sorry-title {
+            margin: 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(
+                    3rem,
+                    12vw,
+                    5.5rem
+                );
+
+            font-weight:
+                normal;
+
+            line-height:
+                0.98;
+
+            color:
+                var(--brown-dark);
+        }
+
+
+        .sorry-title em {
+            font-style:
+                italic;
+        }
+
+
+        .sorry-text {
+            max-width:
+                430px;
+
+            margin:
+                2.25rem auto 0;
+
+            color:
+                var(--brown-light);
+
+            font-size:
+                1rem;
+
+            line-height:
+                1.8;
+        }
+
+
+        .sorry-signoff {
+            margin-top:
+                2.5rem;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                1rem;
+
+            color:
+                var(--brown-dark);
+        }
+
+
+        /* =========================================
+           SMALL DECORATIVE ELEMENT
+        ========================================= */
+
+        .sorry-symbol {
+            margin-top:
+                3rem;
+
+            color:
+                var(--taupe);
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size:
+                1.2rem;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 480px) {
+
+            .sorry-page {
+                padding:
+                    2rem 1.25rem;
+            }
+
+
+            .sorry-title {
+                font-size:
+                    3.4rem;
+            }
+
+
+            .sorry-text {
+                margin-top:
+                    2rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         SORRY
+    ========================================== -->
+
+    <main class="sorry-page">
+
+        <div class="sorry-inner">
+
+            <p class="sorry-eyebrow">
+                Oh, schade.
+            </p>
+
+
+            <h1 class="sorry-title">
+
+                Dann soll es wohl
+                <br>
+                <em>nicht sein.</em>
+
+            </h1>
+
+
+            <p class="sorry-text">
+
+                Danke trotzdem, dass du
+                vorbeigeschaut hast.
+                <br>
+                Ich wünsche dir von Herzen
+                alles Liebe. ♡
+
+            </p>
+
+
+            <p class="sorry-signoff">
+                Vielleicht ein anderes Mal.
+            </p>
+
+
+            <div
+                class="sorry-symbol"
+                aria-hidden="true"
+            >
+                · &nbsp; ♡ &nbsp; ·
+            </div>
+
+        </div>
+
+    </main>
+
+
+</body>
+
+</html>

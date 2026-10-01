@@ -1,4 +1,3 @@
-
 /* =========================================
    SUPABASE CONFIGURATION
 ========================================= */
@@ -18,33 +17,55 @@ const supabaseClient = createClient(
 
 
 /* =========================================
+   JAVASCRIPT ENABLED
+========================================= */
+
+document.documentElement.classList.add(
+    "js-enabled"
+);
+
+
+/* =========================================
    SCROLL REVEAL
 ========================================= */
 
-const animatedElements = document.querySelectorAll(
-    ".section-heading, .form-group, .choice-card, .large-question, .final-content"
-);
+const animatedElements =
+    document.querySelectorAll(
+        ".section-heading, .form-group, .choice-card, .large-question, .final-content"
+    );
 
-const observer = new IntersectionObserver(
-    (entries) => {
 
-        entries.forEach((entry) => {
+const observer =
+    new IntersectionObserver(
+        (entries) => {
 
-            if (entry.isIntersecting) {
-                entry.target.classList.add("reveal");
-                observer.unobserve(entry.target);
-            }
+            entries.forEach((entry) => {
 
-        });
+                if (entry.isIntersecting) {
 
-    },
-    {
-        threshold: 0.12
-    }
-);
+                    entry.target.classList.add(
+                        "reveal"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
 
 animatedElements.forEach((element) => {
+
     observer.observe(element);
+
 });
 
 
@@ -78,6 +99,7 @@ photoInput?.addEventListener(
         const maxSize =
             5 * 1024 * 1024;
 
+
         if (file.size > maxSize) {
 
             alert(
@@ -98,6 +120,7 @@ photoInput?.addEventListener(
             "image/webp"
         ];
 
+
         if (!allowedTypes.includes(file.type)) {
 
             alert(
@@ -115,16 +138,22 @@ photoInput?.addEventListener(
         const image =
             document.createElement("img");
 
+
         image.src =
             URL.createObjectURL(file);
+
 
         image.alt =
             "Vorschau deines Fotos";
 
+
         image.className =
             "photo-preview-image";
 
-        photoPreview.appendChild(image);
+
+        photoPreview.appendChild(
+            image
+        );
 
     }
 );
@@ -139,58 +168,108 @@ function collectAnswers() {
     return {
 
         name:
-            document.getElementById("name").value.trim(),
+            document
+                .getElementById("name")
+                .value
+                .trim(),
 
         age:
             getNumberValue("age"),
 
         location:
-            document.getElementById("location").value.trim(),
+            document
+                .getElementById("location")
+                .value
+                .trim(),
 
         happiness:
-            document.getElementById("happiness").value.trim(),
+            document
+                .getElementById("happiness")
+                .value
+                .trim(),
 
         sunday:
-            document.getElementById("sunday").value.trim(),
+            document
+                .getElementById("sunday")
+                .value
+                .trim(),
 
         passions:
-            document.getElementById("passions").value.trim(),
+            document
+                .getElementById("passions")
+                .value
+                .trim(),
 
         morning:
-            document.getElementById("morning").value,
+            document
+                .getElementById("morning")
+                .value,
 
         food:
-            document.getElementById("food").value.trim(),
+            document
+                .getElementById("food")
+                .value
+                .trim(),
 
         music:
-            document.getElementById("music").value.trim(),
+            document
+                .getElementById("music")
+                .value
+                .trim(),
 
         travel:
-            document.getElementById("travel").value.trim(),
+            document
+                .getElementById("travel")
+                .value
+                .trim(),
 
         guilty_pleasure:
-            document.getElementById("guiltyPleasure").value.trim(),
+            document
+                .getElementById("guiltyPleasure")
+                .value
+                .trim(),
 
         relationship:
-            document.getElementById("relationship").value.trim(),
+            document
+                .getElementById("relationship")
+                .value
+                .trim(),
 
         communication:
-            document.getElementById("communication").value.trim(),
+            document
+                .getElementById("communication")
+                .value
+                .trim(),
 
         values:
-            document.getElementById("values").value.trim(),
+            document
+                .getElementById("values")
+                .value
+                .trim(),
 
         future:
-            document.getElementById("future").value.trim(),
+            document
+                .getElementById("future")
+                .value
+                .trim(),
 
         additional_message:
-            document.getElementById("additionalMessage").value.trim(),
+            document
+                .getElementById("additionalMessage")
+                .value
+                .trim(),
 
         phone:
-            document.getElementById("phone").value.trim(),
+            document
+                .getElementById("phone")
+                .value
+                .trim(),
 
         instagram:
-            document.getElementById("instagram").value.trim(),
+            document
+                .getElementById("instagram")
+                .value
+                .trim(),
 
         image_path:
             null
@@ -205,14 +284,20 @@ function collectAnswers() {
 function getNumberValue(id) {
 
     const value =
-        document.getElementById(id).value.trim();
+        document
+            .getElementById(id)
+            .value
+            .trim();
+
 
     if (!value) {
         return null;
     }
 
+
     const number =
         Number(value);
+
 
     return Number.isNaN(number)
         ? null
@@ -231,11 +316,14 @@ function validateAnswers(answers) {
         const element =
             document.getElementById("name");
 
+
         element.focus();
+
 
         alert(
             "Bitte verrate mir noch deinen Namen."
         );
+
 
         return false;
     }
@@ -243,17 +331,23 @@ function validateAnswers(answers) {
 
     if (
         answers.age !== null &&
-        (answers.age < 18 || answers.age > 100)
+        (
+            answers.age < 18 ||
+            answers.age > 100
+        )
     ) {
 
         const element =
             document.getElementById("age");
 
+
         element.focus();
+
 
         alert(
             "Bitte gib ein gültiges Alter ein."
         );
+
 
         return false;
     }
@@ -323,38 +417,32 @@ async function uploadPhoto(file) {
 ========================================= */
 
 const submitButton =
-    document.getElementById("submitButton");
+    document.getElementById(
+        "submitButton"
+    );
+
 
 const successMessage =
-    document.getElementById("successMessage");
+    document.getElementById(
+        "successMessage"
+    );
 
 
 submitButton.addEventListener(
     "click",
     async () => {
 
-        /*
-         * Antworten einsammeln
-         */
-
         const answers =
             collectAnswers();
 
-
-        /*
-         * Eingaben überprüfen
-         */
 
         if (!validateAnswers(answers)) {
             return;
         }
 
 
-        /*
-         * Button deaktivieren
-         */
-
         submitButton.disabled = true;
+
 
         submitButton.innerHTML =
             "Sending...";
@@ -362,12 +450,11 @@ submitButton.addEventListener(
 
         try {
 
-            /*
-             * Foto hochladen
-             */
+            /* Foto hochladen */
 
             const photoFile =
                 photoInput?.files?.[0];
+
 
             if (photoFile) {
 
@@ -375,22 +462,19 @@ submitButton.addEventListener(
                     await uploadPhoto(
                         photoFile
                     );
+
             }
 
 
-            /*
-             * Daten an Supabase senden
-             */
+            /* Antworten speichern */
 
             const { error } =
                 await supabaseClient
                     .from("dating_responses")
-                    .insert([answers]);
+                    .insert([
+                        answers
+                    ]);
 
-
-            /*
-             * Supabase-Fehler behandeln
-             */
 
             if (error) {
 
@@ -403,59 +487,59 @@ submitButton.addEventListener(
             }
 
 
-/*
- * Erfolgreich gespeichert
- */
-
-console.log(
-    "Antwort erfolgreich gespeichert."
-);
+            console.log(
+                "Antwort erfolgreich gespeichert."
+            );
 
 
-/*
- * Eingaben leeren
- */
+            /* Felder leeren */
 
-document.querySelectorAll(
-    "input, textarea, select"
-).forEach((element) => {
+            document
+                .querySelectorAll(
+                    "input, textarea, select"
+                )
+                .forEach((element) => {
 
-    if (element.type === "file") {
-        element.value = null;
-    } else {
-        element.value = "";
-    }
+                    if (
+                        element.type === "file"
+                    ) {
 
-});
+                        element.value = null;
 
+                    } else {
 
-/*
- * Foto-Vorschau entfernen
- */
+                        element.value = "";
 
-const photoPreview =
-    document.getElementById("photoPreview");
+                    }
 
-if (photoPreview) {
-    photoPreview.innerHTML = "";
-}
+                });
 
 
-/*
- * Erfolg anzeigen
- */
+            /* Foto-Vorschau entfernen */
 
-submitButton.innerHTML =
-    "Sent ♡";
+            if (photoPreview) {
 
-successMessage.classList.add(
-    "visible"
-);
+                photoPreview.innerHTML =
+                    "";
 
-successMessage.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-});
+            }
+
+
+            /* Erfolg anzeigen */
+
+            submitButton.innerHTML =
+                "Sent ♡";
+
+
+            successMessage.classList.add(
+                "visible"
+            );
+
+
+            successMessage.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
 
 
         } catch (error) {
@@ -466,7 +550,9 @@ successMessage.scrollIntoView({
             );
 
 
-            submitButton.disabled = false;
+            submitButton.disabled =
+                false;
+
 
             submitButton.innerHTML =
                 "Try again →";
@@ -476,6 +562,7 @@ successMessage.scrollIntoView({
                 "Leider ist etwas schiefgelaufen. " +
                 "Bitte versuche es noch einmal."
             );
+
         }
 
     }
@@ -487,7 +574,9 @@ successMessage.scrollIntoView({
 ========================================= */
 
 document
-    .querySelectorAll('a[href^="#"]')
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
     .forEach((link) => {
 
         link.addEventListener(
@@ -495,14 +584,18 @@ document
             (event) => {
 
                 const targetId =
-                    link.getAttribute("href");
+                    link.getAttribute(
+                        "href"
+                    );
 
 
                 if (
                     !targetId ||
                     targetId === "#"
                 ) {
+
                     return;
+
                 }
 
 
