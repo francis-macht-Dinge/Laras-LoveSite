@@ -403,31 +403,35 @@ submitButton.addEventListener(
             }
 
 
-            /*
-             * Erfolgreich gespeichert
-             */
+/*
+ * Erfolgreich gespeichert
+ */
 
-            console.log(
-                "Antwort erfolgreich gespeichert."
-            );
-
-
-            submitButton.innerHTML =
-                "Sent ♡";
+console.log(
+    "Antwort erfolgreich gespeichert."
+);
 
 
-            successMessage.classList.add(
-                "visible"
-            );
-
-
-
+/*
+ * Eingaben leeren
+ */
 
 document.querySelectorAll(
     "input, textarea, select"
 ).forEach((element) => {
-    element.value = "";
+
+    if (element.type === "file") {
+        element.value = null;
+    } else {
+        element.value = "";
+    }
+
 });
+
+
+/*
+ * Foto-Vorschau entfernen
+ */
 
 const photoPreview =
     document.getElementById("photoPreview");
@@ -437,11 +441,21 @@ if (photoPreview) {
 }
 
 
+/*
+ * Erfolg anzeigen
+ */
 
-            successMessage.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+submitButton.innerHTML =
+    "Sent ♡";
+
+successMessage.classList.add(
+    "visible"
+);
+
+successMessage.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+});
 
 
         } catch (error) {
