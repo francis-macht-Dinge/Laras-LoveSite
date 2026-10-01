@@ -525,21 +525,11 @@ submitButton.addEventListener(
             }
 
 
-            /* Erfolg anzeigen */
-
-            submitButton.innerHTML =
-                "Sent ♡";
+            /* Weiterleiten auf Thank_you */
 
 
-            successMessage.classList.add(
-                "visible"
-            );
+window.location.href = "thank_you.html";
 
-
-            successMessage.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
 
 
         } catch (error) {

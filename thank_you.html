@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Thank you ♡</title>
+
+    <meta
+        name="description"
+        content="Danke für deine Antworten."
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+            --cream: #f8f5ef;
+            --ivory: #fcfaf6;
+            --sand: #e9dfd2;
+            --brown: #4a3b32;
+            --brown-light: #75665c;
+            --dark: #302721;
+            --terracotta: #a47763;
+            --white: #fffdf9;
+            --serif: "Playfair Display", Georgia, serif;
+            --sans: "DM Sans", Arial, sans-serif;
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            min-height: 100vh;
+            background: var(--cream);
+            color: var(--brown);
+            font-family: var(--sans);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .decoration {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+
+        .decoration-one {
+            width: 280px;
+            height: 280px;
+            background: var(--sand);
+            top: -130px;
+            right: -100px;
+        }
+
+
+        .decoration-two {
+            width: 220px;
+            height: 220px;
+            background: #eee4db;
+            bottom: -110px;
+            left: -90px;
+        }
+
+
+        .thank-you {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 55px 30px;
+        }
+
+
+        .symbol {
+            font-size: 42px;
+            margin-bottom: 28px;
+            color: var(--terracotta);
+            animation: floatIn 1s ease both;
+        }
+
+
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--brown-light);
+            margin-bottom: 18px;
+            animation: floatIn 0.9s ease 0.1s both;
+        }
+
+
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(42px, 10vw, 70px);
+            font-weight: 400;
+            line-height: 1.05;
+            color: var(--dark);
+            margin-bottom: 28px;
+            animation: floatIn 0.9s ease 0.2s both;
+        }
+
+
+        h1 em {
+            color: var(--terracotta);
+            font-style: italic;
+        }
+
+
+        .intro {
+            max-width: 470px;
+            margin: 0 auto 42px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--brown-light);
+            animation: floatIn 0.9s ease 0.3s both;
+        }
+
+
+        .instagram-text {
+            font-family: var(--serif);
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 18px;
+            animation: floatIn 0.9s ease 0.4s both;
+        }
+
+
+        .instagram-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            min-width: 220px;
+            padding: 16px 28px;
+
+            border-radius: 50px;
+
+            background: var(--brown);
+            color: var(--white);
+
+            text-decoration: none;
+
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+
+            animation: floatIn 0.9s ease 0.5s both;
+        }
+
+
+        .instagram-button:hover {
+            transform: translateY(-3px);
+            background: var(--dark);
+            box-shadow: 0 12px 30px rgba(60, 45, 35, 0.15);
+        }
+
+
+        .instagram-button span {
+            font-size: 18px;
+        }
+
+
+        .small-note {
+            margin-top: 25px;
+            font-size: 12px;
+            color: var(--brown-light);
+            opacity: 0.75;
+            animation: floatIn 0.9s ease 0.6s both;
+        }
+
+
+        @keyframes floatIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px;
+            }
+
+
+            .thank-you {
+                padding: 35px 10px;
+            }
+
+
+            .symbol {
+                font-size: 36px;
+            }
+
+
+            .intro {
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="decoration decoration-one"></div>
+
+    <div class="decoration decoration-two"></div>
+
+
+    <main class="thank-you">
+
+        <div class="symbol">
+            ♡
+        </div>
+
+
+        <p class="eyebrow">
+            You made it to the end
+        </p>
+
+
+        <h1>
+            Thank you
+            <em>for sharing.</em>
+        </h1>
+
+
+        <p class="intro">
+            Deine Antworten sind angekommen.
+            Danke, dass Du Dir die Zeit genommen hast,
+            ein bisschen von Dir zu erzählen.
+        </p>
+
+
+        <p class="instagram-text">
+            Und wenn Du jetzt noch neugierig bist ...
+        </p>
+
+
+        <a
+            class="instagram-button"
+            href="https://www.instagram.com/l_wie_lara123/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Find me on Instagram
+            <span>♡</span>
+        </a>
+
+
+    </main>
+
+
+</body>
+
+</html>
