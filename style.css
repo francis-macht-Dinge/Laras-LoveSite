@@ -13,6 +13,9 @@
     --terracotta: #a47763;
     --white: #fffdf9;
 
+    /* etwas eigener Ton für ABOUT ME */
+    --about-bg: #f3ece6;
+
     --serif: "Playfair Display", Georgia, serif;
     --sans: "DM Sans", Arial, sans-serif;
 
@@ -115,6 +118,16 @@ h2 em {
     padding: 90px 24px;
 }
 
+/*
+   Alle dekorativen Kreise liegen auf Ebene 1.
+   Der eigentliche Inhalt liegt auf Ebene 2.
+*/
+.section::before,
+.section::after {
+    z-index: 1;
+    pointer-events: none;
+}
+
 .section-inner {
     position: relative;
     z-index: 2;
@@ -129,6 +142,11 @@ h2 em {
 .section-inner-small {
     max-width: 620px;
 }
+
+
+/* =========================================
+   SECTION FARBEN
+========================================= */
 
 .section-light {
     background: var(--ivory);
@@ -147,7 +165,13 @@ h2 em {
     color: var(--white);
 }
 
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
 .section-heading {
+    position: relative;
     max-width: 650px;
     margin-bottom: 55px;
 }
@@ -191,7 +215,7 @@ h2 em {
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     width: min(100%, 850px);
     margin: 0 auto;
 }
@@ -208,10 +232,15 @@ h2 em {
     font-size: 1rem;
 }
 
+
+/* Hero-Kreise */
+
 .hero-decoration {
     position: absolute;
+    z-index: 1;
     border: 1px solid rgba(164, 119, 99, 0.25);
     border-radius: 50%;
+    pointer-events: none;
 }
 
 .hero-decoration-one {
@@ -226,6 +255,340 @@ h2 em {
     height: 180px;
     bottom: -80px;
     left: -80px;
+}
+
+
+/* =========================================
+   ABOUT ME
+========================================= */
+
+.about-me {
+    background: var(--about-bg);
+}
+
+
+/* großer Kreis rechts oben */
+
+.about-me::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: -130px;
+    right: -110px;
+    border: 1px solid rgba(164, 119, 99, 0.24);
+    border-radius: 50%;
+}
+
+
+/* kleiner Kreis innerhalb */
+
+.about-me::after {
+    content: "";
+    position: absolute;
+    width: 155px;
+    height: 155px;
+    top: -55px;
+    right: -35px;
+    border: 1px solid rgba(164, 119, 99, 0.18);
+    border-radius: 50%;
+}
+
+
+/* Text */
+
+.about-me-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.about-me-text {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about-me-text p {
+    margin-bottom: 22px;
+}
+
+.about-me-text p:last-child {
+    margin-bottom: 0;
+}
+
+.start-symbol {
+    color: var(--terracotta);
+    font-family: var(--serif);
+    font-size: 1.25rem;
+}
+
+
+/* Linie */
+
+.about-me-divider {
+    position: relative;
+    display: block;
+    width: 65%;
+    max-width: 480px;
+    margin: 55px auto;
+    border: 0;
+    border-top: 1px solid rgba(74, 59, 50, 0.18);
+}
+
+
+/* kleiner Stern */
+
+.about-me-divider::after {
+    content: "✦";
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    padding: 0 12px;
+    background: var(--about-bg);
+    color: var(--terracotta);
+    font-size: 0.65rem;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Foto */
+
+.about-me-image {
+    width: 100%;
+    text-align: center;
+}
+
+.about-me-image img {
+    display: inline-block;
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+
+/* =========================================
+   ABOUT YOU
+========================================= */
+
+.about-you {
+    background: var(--ivory);
+}
+
+
+/* kleiner Kreis links oben */
+
+.about-you::before {
+    content: "";
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    top: 70px;
+    left: -75px;
+    border: 1px solid rgba(74, 59, 50, 0.14);
+    border-radius: 50%;
+}
+
+
+/* kleiner Kreis rechts unten */
+
+.about-you::after {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    right: 8%;
+    bottom: 70px;
+    border: 1px solid rgba(164, 119, 99, 0.12);
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   YOUR WORLD
+========================================= */
+
+.your-world {
+    background: var(--sand);
+}
+
+
+/* großer Kreis rechts unten */
+
+.your-world::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    right: -125px;
+    bottom: -100px;
+    border: 1px solid rgba(74, 59, 50, 0.16);
+    border-radius: 50%;
+}
+
+
+/* kleiner Kreis */
+
+.your-world::after {
+    content: "";
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    right: -40px;
+    bottom: -40px;
+    border: 1px solid rgba(164, 119, 99, 0.17);
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   FUN PART
+========================================= */
+
+.fun-part {
+    background: var(--ivory);
+}
+
+
+/* großer Kreis links */
+
+.fun-part::before {
+    content: "";
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    left: -155px;
+    bottom: 50px;
+    border: 1px solid rgba(164, 119, 99, 0.15);
+    border-radius: 50%;
+}
+
+
+/* kleiner Kreis rechts oben */
+
+.fun-part::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 80px;
+    right: -45px;
+    border: 1px solid rgba(74, 59, 50, 0.11);
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   RELATIONSHIP
+========================================= */
+
+.relationship {
+    background: var(--dark);
+}
+
+
+/* großer heller Kreis */
+
+.relationship::before {
+    content: "";
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    top: -150px;
+    right: -120px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+}
+
+
+/* kleiner heller Kreis */
+
+.relationship::after {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    bottom: 70px;
+    left: -65px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   DEEPER
+========================================= */
+
+.deeper {
+    background: var(--cream);
+}
+
+
+/* Kreis rechts oben */
+
+.deeper::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 70px;
+    right: -90px;
+    border: 1px solid rgba(74, 59, 50, 0.13);
+    border-radius: 50%;
+}
+
+
+/* kleiner Kreis links unten */
+
+.deeper::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    bottom: 60px;
+    left: -40px;
+    border: 1px solid rgba(164, 119, 99, 0.12);
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   FREE TEXT
+========================================= */
+
+.free-text {
+    background: var(--sand);
+}
+
+
+/* großer Kreis links unten */
+
+.free-text::before {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    left: -115px;
+    bottom: -85px;
+    border: 1px solid rgba(74, 59, 50, 0.14);
+    border-radius: 50%;
+}
+
+
+/* kleiner Kreis daneben */
+
+.free-text::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: -45px;
+    bottom: -30px;
+    border: 1px solid rgba(164, 119, 99, 0.15);
+    border-radius: 50%;
 }
 
 
@@ -424,10 +787,39 @@ select:focus {
    FINAL
 ========================================= */
 
-.section-final {
+.final-section {
+    position: relative;
     background: var(--terracotta);
     color: var(--white);
     text-align: center;
+}
+
+
+/* großer heller Kreis */
+
+.final-section::before {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    top: -95px;
+    left: 8%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+}
+
+
+/* kleiner heller Kreis */
+
+.final-section::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    right: 10%;
+    bottom: -45px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
 }
 
 .final-content {
@@ -506,7 +898,7 @@ select:focus {
 
 
 /* =========================================
-   TABLET / DESKTOP
+   TABLET
 ========================================= */
 
 @media (min-width: 700px) {
@@ -535,6 +927,10 @@ select:focus {
 
 }
 
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
 
 @media (min-width: 1000px) {
 
