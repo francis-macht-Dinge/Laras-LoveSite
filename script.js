@@ -1,9 +1,13 @@
+
 /* =========================================
    SUPABASE CONFIGURATION
 ========================================= */
 
-const SUPABASE_URL = "https://qebblyzjqtpdqigadzlu.supabase.co";
-const SUPABASE_KEY = "sb_publishable_EjUfkDQ4967_HS_KiW69Sw_-zQB3sVf";
+const SUPABASE_URL =
+    "https://qebblyzjqtpdqigadzlu.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_EjUfkDQ4967_HS_KiW69Sw_-zQB3sVf";
 
 const { createClient } = supabase;
 
@@ -42,6 +46,88 @@ const observer = new IntersectionObserver(
 animatedElements.forEach((element) => {
     observer.observe(element);
 });
+
+
+/* =========================================
+   PHOTO PREVIEW
+========================================= */
+
+const photoInput =
+    document.getElementById("photo");
+
+const photoPreview =
+    document.getElementById("photoPreview");
+
+
+photoInput?.addEventListener(
+    "change",
+    () => {
+
+        photoPreview.innerHTML = "";
+
+        const file =
+            photoInput.files[0];
+
+        if (!file) {
+            return;
+        }
+
+
+        /* Dateigröße prüfen */
+
+        const maxSize =
+            5 * 1024 * 1024;
+
+        if (file.size > maxSize) {
+
+            alert(
+                "Das Foto darf maximal 5 MB groß sein."
+            );
+
+            photoInput.value = "";
+
+            return;
+        }
+
+
+        /* Dateityp prüfen */
+
+        const allowedTypes = [
+            "image/jpeg",
+            "image/png",
+            "image/webp"
+        ];
+
+        if (!allowedTypes.includes(file.type)) {
+
+            alert(
+                "Bitte lade ein JPG-, PNG- oder WebP-Bild hoch."
+            );
+
+            photoInput.value = "";
+
+            return;
+        }
+
+
+        /* Vorschau anzeigen */
+
+        const image =
+            document.createElement("img");
+
+        image.src =
+            URL.createObjectURL(file);
+
+        image.alt =
+            "Vorschau deines Fotos";
+
+        image.className =
+            "photo-preview-image";
+
+        photoPreview.appendChild(image);
+
+    }
+);
 
 
 /* =========================================
@@ -98,7 +184,16 @@ function collectAnswers() {
             document.getElementById("future").value.trim(),
 
         additional_message:
-            document.getElementById("additionalMessage").value.trim()
+            document.getElementById("additionalMessage").value.trim(),
+
+        phone:
+            document.getElementById("phone").value.trim(),
+
+        instagram:
+            document.getElementById("instagram").value.trim(),
+
+        image_path:
+            null
     };
 }
 
@@ -116,7 +211,8 @@ function getNumberValue(id) {
         return null;
     }
 
-    const number = Number(value);
+    const number =
+        Number(value);
 
     return Number.isNaN(number)
         ? null
@@ -168,6 +264,61 @@ function validateAnswers(answers) {
 
 
 /* =========================================
+   UPLOAD PHOTO
+========================================= */
+
+async function uploadPhoto(file) {
+
+    if (!file) {
+        return null;
+    }
+
+
+    const fileExtension =
+        file.name
+            .split(".")
+            .pop()
+            .toLowerCase();
+
+
+    const uniqueName =
+        `${crypto.randomUUID()}.${fileExtension}`;
+
+
+    const filePath =
+        `responses/${uniqueName}`;
+
+
+    const { error } =
+        await supabaseClient
+            .storage
+            .from("dating-photos")
+            .upload(
+                filePath,
+                file,
+                {
+                    contentType: file.type,
+                    upsert: false
+                }
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Photo upload error:",
+            error
+        );
+
+        throw error;
+    }
+
+
+    return filePath;
+}
+
+
+/* =========================================
    SUBMIT TO SUPABASE
 ========================================= */
 
@@ -210,6 +361,22 @@ submitButton.addEventListener(
 
 
         try {
+
+            /*
+             * Foto hochladen
+             */
+
+            const photoFile =
+                photoInput?.files?.[0];
+
+            if (photoFile) {
+
+                answers.image_path =
+                    await uploadPhoto(
+                        photoFile
+                    );
+            }
+
 
             /*
              * Daten an Supabase senden
