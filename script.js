@@ -420,6 +420,16 @@ submitButton.addEventListener(
                 "visible"
             );
 
+			document
+				.querySelector("form")
+				.reset();
+
+				const photoPreview =
+					document.getElementById("photoPreview");
+
+				if (photoPreview) {
+					photoPreview.innerHTML = "";
+}
 
             /*
              * Zum Erfolgshinweis scrollen
