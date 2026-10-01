@@ -420,31 +420,23 @@ submitButton.addEventListener(
                 "visible"
             );
 
-			document
-				.querySelectorAll("input, textarea, select")
-				.forEach((element) => {
-
-					if (element.type === "file") {
-						element.value = "";
-					} else if (element.type === "number") {
-						element.value = "";
-					} else {
-						element.value = "";
-					}
-
-				});
 
 
-			const photoPreview =
-				document.getElementById("photoPreview");
 
-			if (photoPreview) {
-				photoPreview.innerHTML = "";
-			}
+document.querySelectorAll(
+    "input, textarea, select"
+).forEach((element) => {
+    element.value = "";
+});
 
-            /*
-             * Zum Erfolgshinweis scrollen
-             */
+const photoPreview =
+    document.getElementById("photoPreview");
+
+if (photoPreview) {
+    photoPreview.innerHTML = "";
+}
+
+
 
             successMessage.scrollIntoView({
                 behavior: "smooth",
